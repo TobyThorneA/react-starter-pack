@@ -1,5 +1,13 @@
+// import { Route, Router } from 'react-router-dom';
+import Product from '../product/product';
+
+
 function App(): JSX.Element {
-  return <p>Hello, world!</p>;
+  return (
+    <div>
+      <Product />
+    </div>
+  );
 }
 
 export default App;
