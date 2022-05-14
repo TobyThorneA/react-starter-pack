@@ -1,11 +1,23 @@
-// import { Route, Router } from 'react-router-dom';
-import Product from '../product/product';
-
+import Cart from '../../pages/cart/cart';
+import Main from '../../pages/main/main';
+import Product from '../../pages/product/product';
 
 function App(): JSX.Element {
+
+  const pages = (a: number) => {
+    if(a === 1){
+      return <Main />;
+    }
+    if(a === 2){
+      return <Cart/>;
+    }
+    return <Product/>;
+  };
+
   return (
     <div>
-      <Product />
+      {pages(1)}
+      <div></div>
     </div>
   );
 }

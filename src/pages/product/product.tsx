@@ -1,6 +1,7 @@
 import React from 'react';
-import Footer from '../footer/footer';
-import Header from '../header/header';
+import Footer from '../../components/footer/footer';
+import Header from '../../components/header/header';
+import Reviews from '../../components/reviews/reviews';
 // import { Link } from 'react-router-dom';
 // import {} from '../../markup/img/svg/logo.svg';
 
@@ -57,6 +58,7 @@ function Product() {
           <a className="button button--red button--big product-container__button" href="#">Добавить в корзину</a>
         </div>
       </div>
+      <Reviews/>
       <Footer/>
     </div>
   );
