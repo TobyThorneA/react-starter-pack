@@ -2784,7 +2784,7 @@ button,
 }
 
 .reviews__up-button {
-  right: 0;
+  right: 1000;
   bottom: -51px;
   position: absolute;
 }

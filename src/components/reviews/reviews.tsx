@@ -1,96 +1,62 @@
-function Reviews() {
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchCommentsAction } from '../../store/action-api-creators';
+import { useParams } from 'react-router-dom';
+import { store } from '../../store/store';
+import CurrentReview from '../current-review/current-review';
+import { FIRST_COMMENT, STEP_COMMENTS } from '../../const';
+import { loadNextComments } from '../../store/actions';
+import { Link } from 'react-router-dom';
+
+interface ReviewsProps {
+  id: string | undefined
+}
+
+function Reviews({...props}: ReviewsProps) {
+  const comments = useAppSelector((state) => state.commentReducer.comments);
+  const nextComments = useAppSelector((state) => state.commentReducer.lastcomment);
+  const dispatch = useAppDispatch();
+  const {id} = useParams();
+
+  useEffect(() => {
+    store.dispatch(fetchCommentsAction(Number(id)));
+  }, [id]);
+
+  // const comments1 = comments.sort((prev,next) => {
+  //   // new Date(prev.createAt).toLocaleDateString();
+  //   // new Date(next.createAt).toLocaleDateString();
+  //   // eslint-disable-next-line no-console
+  //   // console.log('dataaaaaaaaaaa', prev.createAt, next.createAt);
+  //   return 1;
+  // });
+
+  // // eslint-disable-next-line no-console
+  // console.log('dataaaaaaaaaaa', comments1);
+
   return (
     <div>
       <section className="reviews">
-        <h3 className="reviews__title title title--bigger">Отзывы</h3><a className="button button--red-border button--big reviews__sumbit-button" href="#">Оставить отзыв</a>
-        <div className="review">
-          <div className="review__wrapper">
-            <h4 className="review__title review__title--author title title--lesser">Иванов Максим</h4><span className="review__date">12 декабря</span>
-          </div>
-          <div className="rate review__rating-panel">
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-star"></use>
-            </svg>
-            <p className="visually-hidden">Оценка: Хорошо</p>
-          </div>
-          <h4 className="review__title title title--lesser">Достоинства:</h4>
-          <p className="review__value">Хороший корпус, чистый звук, стурны хорошего качества</p>
-          <h4 className="review__title title title--lesser">Недостатки:</h4>
-          <p className="review__value">Тугие колонки</p>
-          <h4 className="review__title title title--lesser">Комментарий:</h4>
-          <p className="review__value">У гитары отличный цвет, хороше дерево. Тяжелая, в компдлекте неть чехла и ремня.</p>
-        </div>
-        <div className="review">
-          <div className="review__wrapper">
-            <h4 className="review__title review__title--author title title--lesser">Перова Ольга</h4><span className="review__date">12 декабря</span>
-          </div>
-          <div className="rate review__rating-panel">
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-star"></use>
-            </svg>
-            <p className="visually-hidden">Оценка: Хорошо</p>
-          </div>
-          <h4 className="review__title title title--lesser">Достоинства:</h4>
-          <p className="review__value">Хороший корпус, чистый звук, стурны хорошего качества</p>
-          <h4 className="review__title title title--lesser">Недостатки:</h4>
-          <p className="review__value">Тугие колонки</p>
-          <h4 className="review__title title title--lesser">Комментарий:</h4>
-          <p className="review__value">У гитары отличный цвет, хороше дерево. Тяжелая, в компдлекте неть чехла и ремня. </p>
-        </div>
-        <div className="review">
-          <div className="review__wrapper">
-            <h4 className="review__title review__title--author title title--lesser">Преображенская  Ксения</h4><span className="review__date">12 декабря</span>
-          </div>
-          <div className="rate review__rating-panel">
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-full-star"></use>
-            </svg>
-            <svg width="16" height="16" aria-hidden="true">
-              <use xlinkHref="#icon-star"></use>
-            </svg>
-            <p className="visually-hidden">Оценка: Хорошо</p>
-          </div>
-          <h4 className="review__title title title--lesser">Достоинства:</h4>
-          <p className="review__value">Хороший корпус, чистый звук, стурны хорошего качества</p>
-          <h4 className="review__title title title--lesser">Недостатки:</h4>
-          <p className="review__value">Тугие колонки</p>
-          <h4 className="review__title title title--lesser">Комментарий:</h4>
-          <p className="review__value">У гитары отличный цвет, хороше дерево. Тяжелая, в компдлекте неть чехла и ремня. У гитары отличный цвет, хороше дерево. Тяжелая, в компдлекте неть чехла и ремня. У гитары отличный цвет, хороше дерево. Тяжелая, в компдлекте неть чехла и ремня. У гитары отличный цвет, хороше дерево. Тяжелая, в компдлекте неть чехла и ремня. </p>
-        </div>
-        <button className="button button--medium reviews__more-button">Показать еще отзывы</button><a className="button button--up button--red-border button--big reviews__up-button" href="#header">Наверх</a>
+        <h3 className="reviews__title title title--bigger">Отзывы</h3>
+        <Link className="button button--red-border button--big reviews__sumbit-button" to="#">Оставить отзыв</Link>
+        {comments.slice(FIRST_COMMENT, nextComments).map((it) => <CurrentReview key={it.id} comment={it} />)}
+
+        {nextComments < comments.length
+          ?
+          <button
+            onClick={() => dispatch(loadNextComments(STEP_COMMENTS))}
+            className="button button--medium reviews__more-button"
+          >
+            Показать еще отзывы
+          </button>
+          : null}
+
+        <a onClick={() => {
+          // eslint-disable-next-line no-console
+          console.log('click');
+        }} className="button button--up button--red-border button--big reviews__up-button " href="#headLink"
+        >Наверх
+        </a>
+
       </section>
     </div>
   );

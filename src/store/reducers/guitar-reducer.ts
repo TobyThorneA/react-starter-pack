@@ -1,49 +1,53 @@
-import { createReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 import { IGuitar } from '../../types/guitar';
-import { loadAllGuitars } from './actions';
+import { characteristicOrDescriptionAction, loadCurrentGuitar, loadGuitars } from '../actions';
 
 interface GuitarState {
     guitars: IGuitar[];
-    isLoading: boolean;
-    error: string;
+    currentGuitar: IGuitar;
+    characteristicOrDescription: boolean;
+    // isLoading: boolean;
+    // error: string;
 }
+
+const defaultGuitar = {
+  id: 0,
+  name: '',
+  vendorCode: '',
+  type: '',
+  description: '',
+  previewImg: '',
+  stringCount: 0,
+  rating: 0,
+  price: 0,
+};
 
 const initialState: GuitarState = {
   guitars: [],
-  isLoading: true,
-  error: '',
+  currentGuitar: defaultGuitar,
+  characteristicOrDescription: true,
+  // isLoading: true,
+  // error: '',
 };
 
-export const guitarSlice = createSlice({
-  name: 'guitar',
-  initialState,
-  reducers: {
-    guitarFetching(state){
-      state.isLoading = true;
-    },
-    guitarFetchingSuccess(state, action: PayloadAction<IGuitar[]>){
-      state.isLoading = false;
-      state.error = '';
-      state.guitars = action.payload;
-    },
-    guitarFetchingError(state, action: PayloadAction<string> ){
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-  },
-});
+// const guitarReducer = createReducer(initialState, (builder) => {
+//   builder
+//     .addCase(loadGuitars, (state,action) => {
+//       state.guitars = action.payload;
+//     });
+// });
 
 const guitarReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(loadAllGuitars, (state,action) => {
-      // eslint-disable-next-line no-console
-      console.log('guitarsReducer0', state.guitars);
+    .addCase(loadGuitars, (state,action) => {
       state.guitars = action.payload;
-      // eslint-disable-next-line no-console
-      console.log('guitarsReducer1', state.guitars);
+    })
+    .addCase(loadCurrentGuitar, (state, action) => {
+      state.currentGuitar = action.payload;
+    })
+    .addCase(characteristicOrDescriptionAction, (state,action) => {
+      state.characteristicOrDescription = action.payload;
     });
 });
 
 export {guitarReducer};
-
-export default guitarSlice.reducer;

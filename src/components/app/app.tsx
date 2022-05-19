@@ -1,24 +1,36 @@
+import {Route,BrowserRouter, Routes} from 'react-router-dom';
 import Cart from '../../pages/cart/cart';
 import Main from '../../pages/main/main';
 import Product from '../../pages/product/product';
+import {createBrowserHistory} from 'history';
+
+export const browserHistory = createBrowserHistory();
+
 
 function App(): JSX.Element {
 
-  const pages = (a: number) => {
-    if(a === 1){
-      return <Main />;
-    }
-    if(a === 2){
-      return <Cart/>;
-    }
-    return <Product/>;
-  };
-
   return (
-    <div>
-      {pages(1)}
-      <div></div>
-    </div>
+
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path='/'
+          element={<Main/>}
+        />
+        <Route
+          path='/page_:id'
+          element={<Main/>}
+        />
+        <Route
+          path='/cart'
+          element={<Cart/>}
+        />
+        <Route
+          path='/data:id'
+          element={<Product/>}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -2,13 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/app/app';
-import { fetchGuitars } from './store/reducers/action-api-creators';
-import { /*setupStore,*/ store } from './store/store';
+import { fetchGuitarsAction } from './store/action-api-creators';
+import { store } from './store/store';
 
-// const store1 = setupStore();
-
-store.dispatch(fetchGuitars());
-
+store.dispatch(fetchGuitarsAction());
 
 ReactDOM.render(
   <React.StrictMode>
