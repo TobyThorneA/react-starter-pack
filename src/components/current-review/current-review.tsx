@@ -1,4 +1,5 @@
-import { IComment } from '../../types/guitar';
+import { IComment } from '../../types/comment';
+
 
 interface CurrentReviewProps {
     comment: IComment

@@ -6,7 +6,7 @@ import { cartAddReducer } from './reducers/cart-add-reducer';
 
 export const api = createAPI();
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   guitarReducer,
   commentReducer,
   cartAddReducer,

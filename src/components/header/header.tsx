@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import spriteAuto from '../../assets/icon-basket.svg';
 
 function Header() {
   return (
@@ -44,7 +44,9 @@ function Header() {
           <a className="header__cart-link" href="#" aria-label="Корзина">
             <svg className="header__cart-icon" width="14" height="14" aria-hidden="true">
               <use xlinkHref="#icon-basket"></use>
+              <img src={spriteAuto} alt='' className="header__cart-icon" width="14" height="14" aria-hidden="true" />
             </svg><span className="visually-hidden">Перейти в корзину</span><span className="header__cart-count">2</span>
+            <img src={spriteAuto} alt='' />
           </a>
           {/* ------------------------------------------------ */}
         </div>

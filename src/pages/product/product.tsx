@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import Reviews from '../../components/reviews/reviews';
+// import Stars from '../../components/stars/stars';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchCurrentGuitarAction } from '../../store/action-api-creators';
 import { characteristicOrDescriptionAction } from '../../store/actions';
 import { store } from '../../store/store';
+// import ReviewAdd from '../../components/modals/review-add';
 
 function Product() {
   const guitar = useAppSelector((state) => state.guitarReducer.currentGuitar);
@@ -25,9 +27,9 @@ function Product() {
         <div className="container">
           <h1 className="page-content__title title title--bigger">{guitar.name}</h1>
           <ul className="breadcrumbs page-content__breadcrumbs">
-            <li className="breadcrumbs__item"><Link className="link" to="./">Главная</Link>
+            <li className="breadcrumbs__item"><Link className="link" to="/">Главная</Link>
             </li>
-            <li className="breadcrumbs__item"><Link className="link" to="./">Каталог</Link>
+            <li className="breadcrumbs__item"><Link className="link" to="/">Каталог</Link>
             </li>
             <li className="breadcrumbs__item"><Link className="link" to={'/'}>{guitar.name}</Link>
             </li>
@@ -38,7 +40,7 @@ function Product() {
             <div className="product-container__info-wrapper">
               <h2 className="product-container__title title title--big title--uppercase">{guitar.name}</h2>
               <div className="rate product-container__rating">
-                <svg width="14" height="14" aria-hidden="true">
+                {/* <svg width="14" height="14" aria-hidden="true">
                   <use xlinkHref="#icon-full-star"></use>
                 </svg>
                 <svg width="14" height="14" aria-hidden="true">
@@ -52,7 +54,10 @@ function Product() {
                 </svg>
                 <svg width="14" height="14" aria-hidden="true">
                   <use xlinkHref="#icon-star"></use>
-                </svg>
+                </svg> */}
+                {/* <Stars/> */}
+
+
                 <p className="visually-hidden">Оценка: Хорошо</p>
               </div>
               <div className="tabs">
@@ -103,9 +108,12 @@ function Product() {
             </div>
           </div>
         </div>
-        <Reviews id={id}/>
+        <Reviews/>
       </main>
       <Footer/>
+      {/* <ReviewAdd/> */}
+      {/* <Outlet/> */}
+      <Outlet/>
     </div>
   );
 }

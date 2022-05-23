@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { IComment } from '../../types/guitar';
+import { IComment } from '../../types/comment';
 import { loadComments, loadNextComments } from '../actions';
 
 interface commentState {

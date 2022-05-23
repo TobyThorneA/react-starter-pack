@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { PostComment } from '../types/comment';
 import { loadComments, loadCurrentGuitar, loadGuitars } from './actions';
 import { createAPI } from './api';
 import { store } from './store';
@@ -24,8 +25,6 @@ export const fetchCommentsAction = createAsyncThunk(
     try{
       const {data} = await api.get(`/guitars/${id}/comments`);
       store.dispatch(loadComments(data));
-      // eslint-disable-next-line no-console
-      console.log('dataComments', data);
     }catch(error){
     //   errorHandle(error);
       return error;
@@ -41,6 +40,21 @@ export const fetchCurrentGuitarAction = createAsyncThunk(
       store.dispatch(loadCurrentGuitar(data));
     }catch(error){
     //   errorHandle(error);
+      return error;
+    }
+  },
+);
+
+export const commentsPostAction = createAsyncThunk(
+  'comment/postComment',
+  async(postComment:PostComment, {getState} : any) => {
+    try{
+      const comments = getState().commentReducer.comments;
+      const {data} = await api.post('comments', postComment );
+      await api.post('comments', postComment );
+      const newComment = [...comments, data];
+      store.dispatch(loadComments(newComment));
+    }catch(error){
       return error;
     }
   },

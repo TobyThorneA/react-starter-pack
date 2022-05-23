@@ -21,13 +21,10 @@ function Main() {
     count: guitars.length,
   };
 
-  // eslint-disable-next-line no-console
-  console.log('currentGuitar', currentGuitar);
-
   const nextPageButton = (page:number, totalPages: number, nextPage: () => void ) => {
     if(page < totalPages){
       return (
-        <li onClick={() => nextPage()} className="pagination__page pagination__page--next" id="next"><Link to='/' className="link pagination__page-link">Далее</Link>
+        <li onClick={() => nextPage()} className="pagination__page pagination__page--next" id="next"><Link to={`/page${page += 1}`} className="link pagination__page-link">Далее</Link>
         </li>
       );
     }
@@ -36,7 +33,7 @@ function Main() {
   const prevPageButton = (page:number, prevPage: () => void ) => {
     if(page > VALUE_FOR_THE_BACK_BUTTON){
       return (
-        <li onClick={() => prevPage()} className="pagination__page pagination__page--next" id="next"><Link to='/' className="link pagination__page-link">Назад</Link>
+        <li onClick={() => prevPage()} className="pagination__page pagination__page--next" id="next"><Link to={`/page${page -= 1}`} className="link pagination__page-link">Назад</Link>
         </li>
       );
     }
@@ -142,14 +139,18 @@ function Main() {
                 {[...Array(totalPages).keys()].map((it) =>
                   (
                     <div key={it}>
-                      <li
-                        onClick={() => setPage(it+1)} key={it}
+                      <Link
+                        to={`/page${it}`}
+                        onClick={() => {
+                          setPage(it+1);
+                          // navigate(`/page${it}`);
+                        }} key={it}
                         className={`pagination__page ${page === it + 1
                           ?'pagination__page--active'
                           : '' }`}
                       >
                         <li className="link pagination__page-link" >{it + 1}</li>
-                      </li>
+                      </Link>
                     </div>
                   ),
                 )}

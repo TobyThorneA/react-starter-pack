@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
-import { IComment, IGuitar } from '../types/guitar';
+import { IComment } from '../types/comment';
+import { IGuitar } from '../types/guitar';
 
 export const loadGuitars = createAction<IGuitar[]>('load/guitars');
 export const loadCurrentGuitar = createAction<IGuitar>('load/guitar');

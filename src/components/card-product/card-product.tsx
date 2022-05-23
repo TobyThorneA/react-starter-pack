@@ -1,29 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import { fetchCurrentGuitarAction } from '../../store/action-api-creators';
 import { store } from '../../store/store';
 import { useAppDispatch } from '../../hooks/redux';
 // import { fetchCurrentGuitarAction } from '../../store/action-api-creators';
 import { IGuitar } from '../../types/guitar';
 import { openCartAddPopup } from '../../store/actions';
+// import Stars from '../stars/stars';
+import iconFullStar from '../../assets/icon-full-star.svg';
+
 
 function CardProduct(props: IGuitar) {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+
 
   return (
     <div className="product-card"><img src={props.previewImg} srcSet="img/content/catalog-product-0@2x.jpg 2x" width="75" height="190" alt={props.name}/>
       <div className="product-card__info">
         <div className="rate product-card__rate">
-          <svg width="12" height="11" aria-hidden="true">
+          {/* <svg width="12" height="11"> */}
+          {/* </svg> */}
+          {/* <img src={iconFullStar} alt='' /> */}
+          {/* <svg  width="12" height="11" aria-hidden="true" data-testid={iconFullStar}>
+            <use xlinkHref='../../assets/icon-full-star.svg'><img src={iconFullStar} alt='' /></use>
+            <img src={iconFullStar} alt='' />
+          </svg> */}
+          {/* <img alt='' width="12" height="11" aria-hidden="true" data-testid="full-star">
             <use xlinkHref="#icon-full-star"></use>
-          </svg>
-          <svg width="12" height="11" aria-hidden="true">
-            <use xlinkHref="#icon-full-star"></use>
-          </svg>
-          <svg width="12" height="11" aria-hidden="true">
-            <use xlinkHref="#icon-full-star"></use>
+          </img> */}
+          <svg width={12} height={11} aria-hidden="true">
+            <use xlinkHref={iconFullStar}></use>
           </svg>
           <svg width="12" height="11" aria-hidden="true">
             <use xlinkHref="#icon-full-star"></use>
@@ -31,6 +37,7 @@ function CardProduct(props: IGuitar) {
           <svg width="12" height="11" aria-hidden="true">
             <use xlinkHref="#icon-star"></use>
           </svg>
+          {/* <Stars /> */}
           <p className="visually-hidden">{props.rating}</p>
           <p className="rate__count"><span className="visually-hidden">Всего оценок:</span>{props.stringCount}</p>
         </div>
@@ -38,14 +45,14 @@ function CardProduct(props: IGuitar) {
         <p className="product-card__price"><span className="visually-hidden">Цена:</span>{`${props.price} ₽`}
         </p>
       </div>
-      <div onClick={() => navigate(props.id)}
+      <div
         className="product-card__buttons"
 
       >
         <Link
           // onClick={() => dispatch(fetchCommentsAction(props.id))}
           className="button button--mini"
-          to={`data${props.id}`}
+          to={`/${props.id}`}
         >
           Подробнее
         </Link>
