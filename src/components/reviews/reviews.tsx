@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchCommentsAction } from '../../store/action-api-creators';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -7,12 +7,8 @@ import CurrentReview from '../current-review/current-review';
 import { FIRST_COMMENT, STEP_COMMENTS } from '../../const';
 import { loadNextComments } from '../../store/actions';
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
-
-// interface ReviewsProps {
-//   id: string | undefined
-// }
-const rot = 'review';
+import { IComment } from '../../types/comment';
+import dayjs from 'dayjs';
 
 function Reviews() {
   const comments = useAppSelector((state) => state.commentReducer.comments);
@@ -26,24 +22,16 @@ function Reviews() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  // eslint-disable-next-line no-console
-  // console.log('lala',navigate('/'));
 
-  // const comments1 = comments.sort((prev,next) => {
-  //   // new Date(prev.createAt).toLocaleDateString();
-  //   // new Date(next.createAt).toLocaleDateString();
-  //   // eslint-disable-next-line no-console
-  //   // console.log('dataaaaaaaaaaa', prev.createAt, next.createAt);
-  //   return 1;
-  // });
+  const getSortedUpDays = (commentsArray: IComment[]): IComment[] => commentsArray.slice().sort((prevDate, currentDate) => (dayjs(currentDate.createAt).isAfter(dayjs(prevDate.createAt)) ? 1 : -1));
+  const commentsSort = useMemo(() => getSortedUpDays(comments), [comments]).slice(0, nextComments);
 
   if(comments.length === 0){
     return (
       <div>
         <section className="reviews">
           <h3 className="reviews__title title title--bigger">Отзывы</h3>
-          {/* <button onClick={() => navigate(`${location.pathname}/review`)} className="button button--red-border button--big reviews__sumbit-button" >Оставить отзыв</button> */}
-          <Link to={`/${rot}`}className="button button--red-border button--big reviews__sumbit-button" >Оставить отзыв </Link>
+          <Link to={'/review'}className="button button--red-border button--big reviews__sumbit-button" >Оставить отзыв </Link>
           <h1>Пока нет отзывов, станьте первым!</h1>
         </section>
       </div>
@@ -55,8 +43,8 @@ function Reviews() {
       <section className="reviews">
         <h3 className="reviews__title title title--bigger">Отзывы</h3>
         <button onClick={() => navigate(`${location.pathname}/review`)} className="button button--red-border button--big reviews__sumbit-button" >Оставить отзыв</button>
-        {/* <Link to={'review'} className="button button--red-border button--big reviews__sumbit-button" >Оставить отзыв </Link> */}
-        {comments.slice(FIRST_COMMENT, nextComments).map((it) => <CurrentReview key={it.id} comment={it} />)}
+
+        {commentsSort.slice(FIRST_COMMENT, nextComments).map((it) => <CurrentReview key={it.id} comment={it} />)}
 
         {nextComments < comments.length
           ?

@@ -3,16 +3,16 @@ import { Link, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import Rating from '../../components/rating/rating';
 import Reviews from '../../components/reviews/reviews';
-// import Stars from '../../components/stars/stars';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchCurrentGuitarAction } from '../../store/action-api-creators';
 import { characteristicOrDescriptionAction } from '../../store/actions';
 import { store } from '../../store/store';
-// import ReviewAdd from '../../components/modals/review-add';
 
 function Product() {
   const guitar = useAppSelector((state) => state.guitarReducer.currentGuitar);
+  const comments = useAppSelector((state) => state.commentReducer.comments);
   const characteristicOrDescription = useAppSelector((state) => state.guitarReducer.characteristicOrDescription);
   const {id} = useParams();
   const dispatch = useAppDispatch();
@@ -40,25 +40,11 @@ function Product() {
             <div className="product-container__info-wrapper">
               <h2 className="product-container__title title title--big title--uppercase">{guitar.name}</h2>
               <div className="rate product-container__rating">
-                {/* <svg width="14" height="14" aria-hidden="true">
-                  <use xlinkHref="#icon-full-star"></use>
-                </svg>
-                <svg width="14" height="14" aria-hidden="true">
-                  <use xlinkHref="#icon-full-star"></use>
-                </svg>
-                <svg width="14" height="14" aria-hidden="true">
-                  <use xlinkHref="#icon-full-star"></use>
-                </svg>
-                <svg width="14" height="14" aria-hidden="true">
-                  <use xlinkHref="#icon-full-star"></use>
-                </svg>
-                <svg width="14" height="14" aria-hidden="true">
-                  <use xlinkHref="#icon-star"></use>
-                </svg> */}
-                {/* <Stars/> */}
 
+                {<Rating rating={guitar.rating}/>}
 
                 <p className="visually-hidden">Оценка: Хорошо</p>
+                <p className="rate__count"><span className="visually-hidden">Всего оценок:</span>{comments.length}</p>
               </div>
               <div className="tabs">
 
@@ -111,8 +97,6 @@ function Product() {
         <Reviews/>
       </main>
       <Footer/>
-      {/* <ReviewAdd/> */}
-      {/* <Outlet/> */}
       <Outlet/>
     </div>
   );

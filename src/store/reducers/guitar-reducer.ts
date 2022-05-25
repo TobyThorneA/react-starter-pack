@@ -6,8 +6,6 @@ interface GuitarState {
     guitars: IGuitar[];
     currentGuitar: IGuitar;
     characteristicOrDescription: boolean;
-    // isLoading: boolean;
-    // error: string;
 }
 
 const defaultGuitar = {
@@ -26,16 +24,7 @@ const initialState: GuitarState = {
   guitars: [],
   currentGuitar: defaultGuitar,
   characteristicOrDescription: true,
-  // isLoading: true,
-  // error: '',
 };
-
-// const guitarReducer = createReducer(initialState, (builder) => {
-//   builder
-//     .addCase(loadGuitars, (state,action) => {
-//       state.guitars = action.payload;
-//     });
-// });
 
 const guitarReducer = createReducer(initialState, (builder) => {
   builder

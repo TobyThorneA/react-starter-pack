@@ -13,7 +13,6 @@ export const fetchGuitarsAction = createAsyncThunk(
       const {data} = await api.get('/guitars?_limit=27');
       store.dispatch(loadGuitars(data));
     }catch(error){
-    //   errorHandle(error);
       return error;
     }
   },
@@ -26,7 +25,6 @@ export const fetchCommentsAction = createAsyncThunk(
       const {data} = await api.get(`/guitars/${id}/comments`);
       store.dispatch(loadComments(data));
     }catch(error){
-    //   errorHandle(error);
       return error;
     }
   },
@@ -39,7 +37,6 @@ export const fetchCurrentGuitarAction = createAsyncThunk(
       const {data} = await api.get(`/guitars/${id}`);
       store.dispatch(loadCurrentGuitar(data));
     }catch(error){
-    //   errorHandle(error);
       return error;
     }
   },

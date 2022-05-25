@@ -1,4 +1,5 @@
 import { IComment } from '../../types/comment';
+import Rating from '../rating/rating';
 
 
 interface CurrentReviewProps {
@@ -17,21 +18,7 @@ function CurrentReview({comment}: CurrentReviewProps) {
         </h4><span className="review__date">{new Date(comment.createAt).toLocaleDateString()}</span>
       </div>
       <div className="rate review__rating-panel">
-        <svg width="16" height="16" aria-hidden="true">
-          <use xlinkHref="#icon-full-star"></use>
-        </svg>
-        <svg width="16" height="16" aria-hidden="true">
-          <use xlinkHref="#icon-full-star"></use>
-        </svg>
-        <svg width="16" height="16" aria-hidden="true">
-          <use xlinkHref="#icon-full-star"></use>
-        </svg>
-        <svg width="16" height="16" aria-hidden="true">
-          <use xlinkHref="#icon-full-star"></use>
-        </svg>
-        <svg width="16" height="16" aria-hidden="true">
-          <use xlinkHref="#icon-star"></use>
-        </svg>
+        <Rating rating={comment.rating} />
         <p className="visually-hidden">Оценка: Хорошо</p>
       </div>
       <h4 className="review__title title title--lesser">Достоинства:</h4>

@@ -5,8 +5,6 @@ import { useAppSelector } from '../../hooks/redux';
 import { commentsPostAction } from '../../store/action-api-creators';
 import { store } from '../../store/store';
 import { PostComment } from '../../types/comment';
-// import Stars from '../stars/stars';
-// import iconFullStar from '../../assets/icon-full-star.svg';
 
 function ReviewAdd() {
 
@@ -42,9 +40,6 @@ function ReviewAdd() {
     return false;
   };
 
-  // eslint-disable-next-line no-console
-  console.log(postComment.rating);
-
   const onNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target) {
       setPostComment({ ...postComment, userName: event.currentTarget.value });
@@ -72,16 +67,8 @@ function ReviewAdd() {
   const onStarChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target) {
       setPostComment({ ...postComment, rating: Number(event.currentTarget.value) });
-      // eslint-disable-next-line no-console
-      console.log(postComment.rating);
     }
   };
-
-  // const onStarClick = (event: MouseEvent<HTMLInputElement>) => {
-  //   if (event.target && event.currentTarget.checked) {
-  //     setPostComment({ ...postComment, rating: Number(event.currentTarget.value) });
-  //   }
-  // };
 
   const handleEscapeKeyDown = (evt: KeyboardEvent) => {
     if (evt.code === ESCAPE) {
@@ -124,44 +111,27 @@ function ReviewAdd() {
                     onChange={onNameChange}
                   />
                   <span className="form-review__warning">
-                    {/* {errorName ? 'Заполните поле' : <br/>} */}
                   </span>
 
                 </div>
                 <div>
                   <span className="form-review__label form-review__label--required" style={{marginBottom: '10px'}}>Ваша Оценка</span>
                   <div className='rect-rate'>
-                    {/* {stars} */}
-                    {/* <div className="rate rate--reverse">
-                      {stars.map((it) => (
-                        <div className="rate rate--reverse"  key={it}>
-                          <input className="visually-hidden" id="star-5" name="rate" type="radio" value="5"/>
-                          <label className="rate__label" htmlFor="star-5" title="Отлично">
-                          </label>
-                        </div>
-                      ),
-                      )}
-                    </div> */}
-                    {/* <Stars /> */}
                     <div className='rect-rate'>
                       <div className="rate rate--reverse">
                         {stars.map((it) => (
                           <div className="rate rate--reverse"  key={it}>
                             <input
                               onChange={onStarChange}
-                              // onClick={(evt) => {
-                              // eslint-disable-next-line no-console
-                              // console.log('evt', evt.currentTarget.value);
-                              // }}
                               className="visually-hidden"
                               id={`star-${it}`}
                               name={`rate${it}`}
                               type="radio"
-                              value={it}
-                              checked={it <= postComment.rating}
+                              value={it +1 }
+                              checked={it < postComment.rating}
                             />
                             <label className="rate__label" htmlFor={`star-${it}`} title="Отлично">
-                              {/* Rating { it+1} */}
+
                             </label>
                           </div>
                         ),
