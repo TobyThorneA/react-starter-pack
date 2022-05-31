@@ -1,0 +1,736 @@
+/* This source code is exported from pxCode, you can get more document from https://www.pxcode.io */
+@import "utils";
+
+$font_type0: 14px/1.5 "Roboto", Helvetica, Arial, serif;
+
+.group {
+  @include flex-column;
+}
+.group_layout2 {
+  position: relative;
+}
+.group_layout {
+  position: absolute;
+  top: 100px;
+  height: 256px;
+  left: 318px;
+  width: 257px;
+}
+.block2 {
+  @include flex-column;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 9px 18px 0px rgba(0, 0, 0, 0.17647058823529413);
+}
+.block2_layout {
+  position: relative;
+  height: 256px;
+  margin: 0px 0px 0px 1px;
+  @include lg {
+    margin: 0px 0px 0px 5px;
+  }
+}
+.image {
+  background: var(--src) center center / contain no-repeat;
+}
+.image_layout {
+  position: absolute;
+  top: 0px;
+  height: 225px;
+  left: 17px;
+  right: 15px;
+  margin: 15px 0px 16px;
+  @include lg {
+    left: 15px;
+    right: 13px;
+    margin: 13px 0px 14px;
+  }
+  @include md {
+    left: 13px;
+    right: 11px;
+    margin: 11px 0px 12px;
+  }
+  @include sm {
+    left: 11px;
+    right: 9px;
+    margin: 9px 0px 10px;
+  }
+  @include xs {
+    left: 10px;
+    margin: 9px 0px;
+  }
+  @include xxs {
+    left: 9px;
+    right: 8px;
+    margin: 8px 0px;
+  }
+  @include tn {
+    left: 8px;
+    right: 7px;
+    margin: 7px 0px 8px;
+  }
+}
+.cover_block {
+  @include flex-column;
+  background: var(--src) center center / contain no-repeat;
+}
+.cover_block_layout {
+  position: absolute;
+  top: 0px;
+  height: 58px;
+  left: 0px;
+  right: 0px;
+  margin: 198px 0px 0px;
+  @include lg {
+    margin: 157px 0px 0px;
+  }
+  @include md {
+    margin: 112px 0px 0px;
+  }
+  @include sm {
+    margin: 73px 0px 0px;
+  }
+  @include xs {
+    margin: 54px 0px 0px;
+  }
+  @include xxs {
+    margin: 35px 0px 0px;
+  }
+  @include tn {
+    margin: 22px 0px 0px;
+  }
+}
+.icon {
+  background: var(--src) center center / contain no-repeat;
+}
+.icon_layout {
+  position: absolute;
+  top: -9px;
+  height: 48px;
+  width: 48px;
+  right: 15px;
+}
+.flex3 {
+  display: flex;
+  @include lg {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+}
+.flex3_layout {
+  position: absolute;
+  height: 228px;
+  bottom: 100px;
+  width: 1316px;
+  right: 62px;
+}
+.flex3_item {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 225px;
+  @include lg {
+    flex: 0 0 100%;
+  }
+}
+.image3 {
+  background: var(--src) center center / contain no-repeat;
+}
+.image3_layout {
+  position: relative;
+  height: 223px;
+  margin: 3px 0px 2px;
+  @include lg {
+    margin: 5px 0px;
+  }
+}
+.flex3_spacer {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 48px;
+  @include lg {
+    display: none;
+  }
+}
+.image_layout1 {
+  position: relative;
+  height: 225px;
+  margin: 3px 0px 0px;
+  @include lg {
+    margin: 5px 0px 0px;
+  }
+}
+.image_layout2 {
+  position: relative;
+  height: 225px;
+  margin: 0px 0px 3px;
+  @include lg {
+    margin: 0px 0px 5px;
+  }
+}
+.flex3_spacer1 {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 47px;
+  @include lg {
+    display: none;
+  }
+}
+.image_layout3 {
+  position: relative;
+  height: 225px;
+  margin: 0px 0px 3px;
+  @include lg {
+    margin: 0px 0px 5px;
+  }
+}
+.block1 {
+  @include flex-column;
+  background-color: rgb(33, 150, 243);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.23921568627450981);
+}
+.block1_layout {
+  position: absolute;
+  top: 0px;
+  height: 64px;
+  width: 1440px;
+  right: 0px;
+}
+.block {
+  @include flex-column;
+  background-color: rgb(255, 255, 255);
+}
+.block_layout {
+  position: relative;
+  overflow: hidden;
+  height: min-content;
+}
+.group_layout1 {
+  position: relative;
+  height: min-content;
+}
+.flex1 {
+  display: flex;
+  @include xl {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+}
+.flex1_layout {
+  position: relative;
+  height: min-content;
+  width: 91.39%;
+  margin: 0px auto;
+  @include xl {
+    width: 93.4%;
+  }
+  @include lg {
+    width: 94.97%;
+  }
+  @include md {
+    width: 96.18%;
+  }
+  @include sm {
+    width: 97.11%;
+  }
+  @include xs {
+    width: 97.81%;
+  }
+  @include xxs {
+    width: 98.35%;
+  }
+  @include tn {
+    width: 98.76%;
+  }
+}
+.flex1_item {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 120px;
+  @include xl {
+    flex: 0 0 50%;
+  }
+}
+.block4 {
+  @include flex-column;
+  background-color: rgb(30, 136, 229);
+}
+.block4_layout {
+  position: relative;
+  height: min-content;
+}
+.text_body {
+  @include h-center-content;
+  font: $font_type0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 0.25px;
+  @include md {
+    font-size: 13px;
+    text-align: center;
+  }
+  @include xs {
+    font-size: 12px;
+  }
+}
+.text_body_layout {
+  position: relative;
+  height: min-content;
+  margin: 23px 20.5px 20px;
+  @include lg {
+    margin: 20px 18px 18px;
+  }
+  @include md {
+    margin: 17px 15px 15px;
+  }
+  @include sm {
+    margin: 14px 13px 13px;
+  }
+  @include xs {
+    margin: 13px 12px 11px;
+  }
+  @include xxs {
+    margin: 12px 11px 10px;
+  }
+  @include tn {
+    margin: 11px 10px 10px;
+  }
+}
+.flex1_item1 {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 1196px;
+  @include xl {
+    flex: 0 0 50%;
+  }
+}
+.block3 {
+  @include flex-column;
+  background-color: rgb(33, 150, 243);
+}
+.block3_layout {
+  position: relative;
+  height: min-content;
+  margin: 0px 1023px 0px 0px;
+  @include lg {
+    margin: 0px 778px 0px 0px;
+  }
+  @include md {
+    margin: 0px 513px 0px 0px;
+  }
+  @include sm {
+    margin: 0px 287px 0px 0px;
+  }
+  @include xs {
+    margin: 0px 173px 0px 0px;
+  }
+  @include xxs {
+    margin: 0px 60px 0px 0px;
+  }
+  @include tn {
+    margin: 0px 5px 0px 0px;
+  }
+}
+.text_body1 {
+  @include h-center-content;
+  font: $font_type0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  letter-spacing: 0.25px;
+  opacity: 0.69;
+  @include md {
+    font-size: 13px;
+    text-align: center;
+  }
+  @include xs {
+    font-size: 12px;
+  }
+}
+.text_body1_layout {
+  position: relative;
+  height: min-content;
+  margin: 23px 25.5px 20px;
+  @include lg {
+    margin: 20px 22px 18px;
+  }
+  @include md {
+    margin: 17px 19px 15px;
+  }
+  @include sm {
+    margin: 14px 16px 13px;
+  }
+  @include xs {
+    margin: 13px 15px 11px;
+  }
+  @include xxs {
+    margin: 12px 13px 10px;
+  }
+  @include tn {
+    margin: 11px 12px 10px;
+  }
+}
+.flex {
+  display: flex;
+  @include md {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+}
+.flex_layout {
+  position: relative;
+  height: min-content;
+  width: 91.39%;
+  margin: 36px auto 0px;
+  @include xl {
+    width: 93.4%;
+  }
+  @include lg {
+    width: 94.97%;
+    margin: 31px auto 0px;
+  }
+  @include md {
+    width: 96.18%;
+    margin: 26px auto 0px;
+  }
+  @include sm {
+    width: 97.11%;
+    margin: 22px auto 0px;
+  }
+  @include xs {
+    width: 97.81%;
+    margin: 20px auto 0px;
+  }
+  @include xxs {
+    width: 98.35%;
+    margin: 17px auto 0px;
+  }
+  @include tn {
+    width: 98.76%;
+    margin: 16px auto 0px;
+  }
+}
+.flex_item {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 225px;
+  @include md {
+    flex: 0 0 calc(100% - 16px);
+  }
+  @include sm {
+    flex: 0 0 100%;
+  }
+}
+.image_layout4 {
+  position: relative;
+  height: 225px;
+  margin: 12px 0px 19px;
+  @include lg {
+    margin: 11px 0px 17px;
+  }
+  @include md {
+    margin: 9px 0px 14px;
+  }
+  @include sm {
+    margin: 8px 0px 12px;
+  }
+  @include xs {
+    margin: 7px 0px 11px;
+  }
+  @include xxs {
+    margin: 6px 0px 10px;
+  }
+  @include tn {
+    margin: 6px 0px 9px;
+  }
+}
+.flex_spacer {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 31px;
+  @include md {
+    flex: 0 0 16px;
+  }
+  @include sm {
+    display: none;
+  }
+}
+.flex_spacer1 {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 257px;
+  @include md {
+    display: none;
+  }
+}
+.flex_spacer2 {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 33px;
+  @include md {
+    flex: 0 0 16px;
+  }
+  @include sm {
+    display: none;
+  }
+}
+.image_layout5 {
+  position: relative;
+  height: 225px;
+  margin: 16px 0px 15px;
+  @include lg {
+    margin: 14px 0px 13px;
+  }
+  @include md {
+    margin: 12px 0px 11px;
+  }
+  @include sm {
+    margin: 10px 0px 9px;
+  }
+  @include xs {
+    margin: 9px 0px;
+  }
+  @include xxs {
+    margin: 8px 0px;
+  }
+  @include tn {
+    margin: 8px 0px 7px;
+  }
+}
+.flex_spacer3 {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 48px;
+  @include md {
+    display: none;
+  }
+}
+.flex_item1 {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 224px;
+  @include md {
+    flex: 0 0 calc(50% - 8px);
+  }
+  @include sm {
+    flex: 0 0 100%;
+  }
+}
+.image1 {
+  background: var(--src) center center / contain no-repeat;
+}
+.image1_layout {
+  position: relative;
+  height: 224px;
+  margin: 17px 0px 15px;
+  @include lg {
+    margin: 15px 0px 13px;
+  }
+  @include md {
+    margin: 13px 0px 11px;
+  }
+  @include sm {
+    margin: 11px 0px 9px;
+  }
+  @include xs {
+    margin: 10px 0px 9px;
+  }
+  @include xxs {
+    margin: 9px 0px 8px;
+  }
+  @include tn {
+    margin: 8px 0px 7px;
+  }
+}
+.flex_spacer4 {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 48px;
+  @include md {
+    flex: 0 0 16px;
+  }
+  @include sm {
+    display: none;
+  }
+}
+.flex_item2 {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 225px;
+  @include md {
+    flex: 0 0 calc(50% - 8px);
+  }
+  @include sm {
+    flex: 0 0 100%;
+  }
+}
+.image_layout6 {
+  position: relative;
+  height: 225px;
+  margin: 15px 0px 16px;
+  @include lg {
+    margin: 13px 0px 14px;
+  }
+  @include md {
+    margin: 11px 0px 12px;
+  }
+  @include sm {
+    margin: 9px 0px 10px;
+  }
+  @include xs {
+    margin: 9px 0px;
+  }
+  @include xxs {
+    margin: 8px 0px;
+  }
+  @include tn {
+    margin: 7px 0px 8px;
+  }
+}
+.flex2 {
+  display: flex;
+  @include lg {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+}
+.flex2_layout {
+  position: relative;
+  height: min-content;
+  width: 91.39%;
+  margin: 31px auto 0px;
+  @include xl {
+    width: 93.4%;
+  }
+  @include lg {
+    width: 94.97%;
+    margin: 27px auto 0px;
+  }
+  @include md {
+    width: 96.18%;
+    margin: 23px auto 0px;
+  }
+  @include sm {
+    width: 97.11%;
+    margin: 19px auto 0px;
+  }
+  @include xs {
+    width: 97.81%;
+    margin: 18px auto 0px;
+  }
+  @include xxs {
+    width: 98.35%;
+    margin: 16px auto 0px;
+  }
+  @include tn {
+    width: 98.76%;
+    margin: 15px auto 0px;
+  }
+}
+.flex2_item {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 225px;
+  @include lg {
+    flex: 0 0 100%;
+  }
+}
+.image_layout7 {
+  position: relative;
+  height: 225px;
+  margin: 2px 0px 0px;
+  @include lg {
+    margin: 5px 0px 0px;
+  }
+}
+.flex2_spacer {
+  @include flex-column;
+  position: relative;
+  flex: 0 1 48px;
+  @include lg {
+    display: none;
+  }
+}
+.image_layout8 {
+  position: relative;
+  height: 225px;
+  margin: 2px 0px 0px;
+  @include lg {
+    margin: 5px 0px 0px;
+  }
+}
+.image_layout9 {
+  position: relative;
+  height: 225px;
+  margin: 2px 0px 0px;
+  @include lg {
+    margin: 5px 0px 0px;
+  }
+}
+.flex2_item1 {
+  @include flex-column;
+  position: relative;
+  flex: 1 1 224px;
+  @include lg {
+    flex: 0 0 100%;
+  }
+}
+.image2 {
+  background: var(--src) center center / contain no-repeat;
+}
+.image2_layout {
+  position: relative;
+  height: 226px;
+  margin: 0px 0px 1px;
+  @include lg {
+    margin: 0px 0px 5px;
+  }
+}
+.image_layout10 {
+  position: relative;
+  height: 225px;
+  margin: 0px 0px 2px;
+  @include lg {
+    margin: 0px 0px 5px;
+  }
+}
+.block_spacer {
+  @include flex-column;
+  position: relative;
+}
+.text_body11 {
+  @include h-center-content;
+  font: $font_type0;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  letter-spacing: 0.25px;
+  @include md {
+    font-size: 13px;
+    text-align: center;
+  }
+  @include xs {
+    font-size: 12px;
+  }
+}
+.text_body11_layout {
+  position: relative;
+  height: min-content;
+  width: 13.75%;
+  margin: 48px auto 31px;
+  @include lg {
+    margin: 41px auto 27px;
+  }
+  @include md {
+    margin: 33px auto 23px;
+  }
+  @include sm {
+    margin: 27px auto 19px;
+  }
+  @include xs {
+    margin: 24px auto 18px;
+  }
+  @include xxs {
+    margin: 20px auto 16px;
+  }
+  @include tn {
+    margin: 18px auto 15px;
+  }
+}
+

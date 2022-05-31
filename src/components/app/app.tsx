@@ -7,6 +7,7 @@ import {createBrowserHistory} from 'history';
 import ReviewAdd from '../modals/review-add';
 import NotFound from '../../pages/not-found';
 import SuccessReview from '../modals/success-review';
+import AllCats from '../all-cats/all-cats';
 
 export const browserHistory = createBrowserHistory();
 
@@ -23,6 +24,7 @@ function App(): JSX.Element {
         <Route path='*' element={<NotFound/>}/>
         <Route index element={<Main/>} />
         <Route path='page:id' element={<Main/>}/>
+        <Route path='allCats' element={<AllCats/>}/>
         <Route path=':id' element={<Product/>}>
           <Route path='review' element={<ReviewAdd/>}/>
           <Route path='success/' element={<SuccessReview/>}/>
